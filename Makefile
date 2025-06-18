@@ -1,7 +1,19 @@
 CC = clang++
 CFLAGS = -std=c++11
 
-all: app
+SRC = src/board.cpp src/moves.cpp 
+OBJ = $(SRC:.cpp=.o)
 
-app: src/main.cpp
-	@$(CC) $(CFLAGS) -g src/main.cpp -o bin/main
+all: main test
+
+main: $(OBJ) src/main.o
+	$(CC) $(CFLAGS) -g $^ -o bin/$@
+
+test: $(OBJ) src/test.o
+	$(CC) $(CFLAGS) -g $^ -o bin/$@
+
+src/%.o: src/%.cpp
+	$(CC) $(CFLAGS) -c -g $< -o $@
+
+clean:
+	rm -f bin/* src/*.o
