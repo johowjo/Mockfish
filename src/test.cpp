@@ -1,9 +1,18 @@
 #include "board.h"
+#include "moves.h"
 #include <iostream>
+#define DEBUG
 
 void test_bitboard() {
-  Board::Bitboard bb = 1ull;
+  Board::Bitboard bb = 0x800ull;
+  Board::Bitboard _bb;
   Board::show_bitboard(bb);
+  _bb = Moves::rook_squares(bb);
+  Board::show_bitboard(_bb);
+  _bb = Moves::bishop_squares(bb);
+  Board::show_bitboard(_bb);
+  _bb = Moves::queen_squares(bb);
+  Board::show_bitboard(_bb);
   return;
 }
 

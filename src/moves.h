@@ -13,48 +13,22 @@ enum Direction {
   SOUTH_WEST,
 };
 
-template <Direction dir>
-Bitboard shift (Bitboard bb) {
-  if (dir == NORTH) {
-    return bb << 8;
-  } else if (dir == SOUTH) {
-    return bb >> 8;
-  } else if (dir == EAST) {
-    return bb << 1;
-  } else if (dir == WEST) {
-    return bb >> 1;
-  } else if (dir == NORTH_EAST) {
-    return bb << 7;
-  } else if (dir == NORTH_WEST) {
-    return bb << 9;
-  } else if (dir == SOUTH_EAST) {
-    return bb >> 9;
-  } else if (dir == SOUTH_WEST) {
-    return bb >> 7;
-  } else {
-    std::cerr << "invalid shift direction\n";
-    return -1;
-  }
-}
+Bitboard shift (Direction dir, const Bitboard bb);
 
 
-// return available squares for a rook
-Bitboard rook_squares(Bitboard rook_pos);
+// returns available squares for a piece from its position
+// assuming empty board
+Bitboard rook_squares(Bitboard pos);
 
-// return available squares for a bishop
-Bitboard bishop_squares(Bitboard bishop_pos);
+Bitboard bishop_squares(Bitboard pos);
 
-// return available squares for a queen
-Bitboard queen_squares(Bitboard queen_pos);
+Bitboard queen_squares(Bitboard pos);
 
-// return available squares for a knight
-Bitboard knight_squares(Bitboard knight_pos);
+Bitboard knight_squares(Bitboard pos);
 
-// return available squares for a king
-Bitboard king_squares(Bitboard king_pos);
+Bitboard king_squares(Bitboard pos);
 
-// return available squares for a pawn
-Bitboard pawn_squares(Bitboard pawn_pos);
+Bitboard pawn_squares(Bitboard pos);
 
 
 }

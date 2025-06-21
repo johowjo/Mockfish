@@ -2,6 +2,7 @@
 #define _BOARD_H
 #include <cstdint>
 #include <iostream>
+#define BOARD_SIZE 8
 namespace Board {
 using Bitboard = uint64_t;
 enum File {
@@ -32,5 +33,8 @@ struct Square {
 };
 
 void show_bitboard(Bitboard bb);
+
+Square get_square(Bitboard bb);
+
 }
 #endif

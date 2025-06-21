@@ -2,6 +2,7 @@
 #include <iostream>
 namespace Board {
 void show_bitboard(Bitboard bb) {
+  std::cout << "number of bitboard: " << bb << '\n';
   for (int i = 0; i < 8; i++) {
     for (int j = 0; j < 8; j++) {
       int bit = 56 - 8 * i + j;
@@ -10,5 +11,16 @@ void show_bitboard(Bitboard bb) {
     }
     std::cout << '\n';
   }
+}
+
+Square get_square(Bitboard bb) {
+  int bit = 0;
+  while (true) {
+    if ((bb >> bit) & 1ull) {
+      break;
+    }
+    bit++;
+  }
+  return Square {.file = File(bit % 8), .rank = Rank(bit / 8)};
 }
 }
