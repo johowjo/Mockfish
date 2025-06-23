@@ -84,4 +84,93 @@ Bitboard queen_squares(Bitboard pos) {
   return bb;
 }
 
+Bitboard black_pawn_move_squares(Bitboard pos) {
+  Bitboard bb = shift(SOUTH, pos);
+  if (get_square(pos).rank == Board::RANK_7) {
+    bb |= shift(SOUTH, bb);
+  }
+  return bb;
+}
+
+Bitboard white_pawn_move_squares(Bitboard pos) {
+  Bitboard bb = shift(NORTH, pos);
+  if (get_square(pos).rank == Board::RANK_2) {
+    bb |= shift(NORTH, bb);
+  }
+  return bb;
+}
+
+Bitboard black_pawn_capture_squares(Bitboard pos) {
+  return (shift(SOUTH_EAST, pos) | shift(SOUTH_WEST, pos));
+}
+
+Bitboard white_pawn_capture_squares(Bitboard pos) {
+  return (shift(NORTH_EAST, pos) | shift(NORTH_WEST, pos));
+}
+
+Bitboard knight_squares(Bitboard pos) {
+  Square square = get_square(pos);
+  int left_distance = int(square.file - FILE_A);
+  int right_distance = int(FILE_H - square.file);
+  int lower_distance = int(square.rank - RANK_1);
+  int upper_distance = int(RANK_8 - square.rank);
+
+  Bitboard bb = 0ull;
+
+  bool left_2 = left_distance >= 2;
+  bool left_1 = left_distance >= 1;
+  bool right_2 = right_distance > 2;
+  bool right_1 = right_distance >= 1;
+  bool lower_2 = lower_distance >= 2;
+  bool lower_1 = lower_distance >= 1;
+  bool upper_2 = upper_distance >= 2;
+  bool upper_1 = upper_distance >= 1;
+
+  if (left_1) {
+    if (upper_1) {
+      Bitboard nw = shift(NORTH_WEST, pos);
+      if (left_2) {
+        bb |= shift(WEST, nw);
+      }
+      if (upper_2) {
+        bb |= shift(NORTH, nw);
+      }
+    }
+
+    if (lower_1) {
+      Bitboard sw = shift(SOUTH_WEST, pos);
+      if (left_2) {
+        bb |= shift(WEST, sw);
+      }
+      if (lower_2) {
+        bb |= shift(SOUTH, sw);
+      }
+    }
+  }
+
+  if (right_1) {
+    if (upper_1) {
+      Bitboard ne = shift(NORTH_EAST, pos);
+      if (right_2) {
+        bb |= shift(EAST, ne);
+      }
+      if (upper_2) {
+        bb |= shift(NORTH, ne);
+      }
+    }
+
+    if (lower_1) {
+      Bitboard se = shift(SOUTH_EAST, pos);
+      if (left_2) {
+        bb |= shift(EAST, se);
+      }
+      if (lower_2) {
+        bb |= shift(SOUTH, se);
+      }
+    }
+  }
+
+  return bb;
+}
+
 }

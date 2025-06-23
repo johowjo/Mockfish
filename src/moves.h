@@ -28,7 +28,17 @@ Bitboard knight_squares(Bitboard pos);
 
 Bitboard king_squares(Bitboard pos);
 
-Bitboard pawn_squares(Bitboard pos);
+// returns available squares for a piece to move to (not capture)
+// assuming empty board
+Bitboard black_pawn_move_squares(Bitboard pos);
+
+Bitboard white_pawn_move_squares(Bitboard pos);
+
+// returns available squares for a piece to capture at
+// assuming empty board
+Bitboard black_pawn_capture_squares(Bitboard pos);
+
+Bitboard white_pawn_capture_squares(Bitboard pos);
 
 
 }

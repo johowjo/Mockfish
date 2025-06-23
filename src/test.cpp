@@ -13,6 +13,12 @@ void test_bitboard() {
   Board::show_bitboard(_bb);
   _bb = Moves::queen_squares(bb);
   Board::show_bitboard(_bb);
+  _bb = Moves::knight_squares(bb);
+  Board::show_bitboard(_bb);
+  _bb = Moves::black_pawn_move_squares(bb);
+  Board::show_bitboard(_bb);
+  _bb = Moves::white_pawn_move_squares(bb);
+  Board::show_bitboard(_bb);
   return;
 }
 
