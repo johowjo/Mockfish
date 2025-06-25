@@ -1,5 +1,5 @@
 #include "board.h"
-#include "moves.h"
+#include "moveutils.h"
 #include <iostream>
 #define DEBUG
 

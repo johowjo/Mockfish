@@ -13,7 +13,7 @@ void show_bitboard(Bitboard bb) {
   }
 }
 
-Square get_square(Bitboard bb) {
+Square bb_to_square(Bitboard bb) {
   int bit = 0;
   while (true) {
     if ((bb >> bit) & 1ull) {
@@ -22,5 +22,10 @@ Square get_square(Bitboard bb) {
     bit++;
   }
   return Square {.file = File(bit % 8), .rank = Rank(bit / 8)};
+}
+
+Bitboard square_to_bb(Square square) {
+  int bit = 8 * square.file + square.rank;
+  return Bitboard(1 << bit);
 }
 }

@@ -5,6 +5,11 @@
 #define BOARD_SIZE 8
 namespace Board {
 using Bitboard = uint64_t;
+enum Color {
+  WHITE,
+  BLACK,
+};
+
 enum File {
   FILE_A,
   FILE_B,
@@ -34,7 +39,13 @@ struct Square {
 
 void show_bitboard(Bitboard bb);
 
-Square get_square(Bitboard bb);
+Square bb_to_square(Bitboard bb);
+
+Bitboard square_to_bb(Square square);
+
+inline Color opposite_color(Color color) {
+  return color == WHITE ? BLACK : WHITE;
+}
 
 }
 #endif

@@ -1,4 +1,4 @@
-#include "moves.h"
+#include "moveutils.h"
 #include "board.h"
 #include <algorithm>
 namespace Moves {
@@ -37,7 +37,7 @@ void iterate_direction(Direction dir, Bitboard &bb, const Bitboard pos, int step
 Bitboard rook_squares(Bitboard pos) {
   Bitboard bb = 0ull;
 
-  Square square = Board::get_square(pos);
+  Square square = Board::bb_to_square(pos);
 
   // std::cout << square.file << ' ' << square.rank << '\n';
 
@@ -52,7 +52,7 @@ Bitboard rook_squares(Bitboard pos) {
 Bitboard bishop_squares(Bitboard pos) {
   Bitboard bb = 0ull;
 
-  Square square = Board::get_square(pos);
+  Square square = Board::bb_to_square(pos);
 
   // std::cout << square.file << ' ' << square.rank << '\n';
 
@@ -67,7 +67,7 @@ Bitboard bishop_squares(Bitboard pos) {
 Bitboard queen_squares(Bitboard pos) {
   Bitboard bb = 0ull;
 
-  Square square = Board::get_square(pos);
+  Square square = Board::bb_to_square(pos);
 
   // std::cout << square.file << ' ' << square.rank << '\n';
 
@@ -86,7 +86,7 @@ Bitboard queen_squares(Bitboard pos) {
 
 Bitboard black_pawn_move_squares(Bitboard pos) {
   Bitboard bb = shift(SOUTH, pos);
-  if (get_square(pos).rank == Board::RANK_7) {
+  if (bb_to_square(pos).rank == Board::RANK_7) {
     bb |= shift(SOUTH, bb);
   }
   return bb;
@@ -94,7 +94,7 @@ Bitboard black_pawn_move_squares(Bitboard pos) {
 
 Bitboard white_pawn_move_squares(Bitboard pos) {
   Bitboard bb = shift(NORTH, pos);
-  if (get_square(pos).rank == Board::RANK_2) {
+  if (bb_to_square(pos).rank == Board::RANK_2) {
     bb |= shift(NORTH, bb);
   }
   return bb;
@@ -109,7 +109,7 @@ Bitboard white_pawn_capture_squares(Bitboard pos) {
 }
 
 Bitboard knight_squares(Bitboard pos) {
-  Square square = get_square(pos);
+  Square square = bb_to_square(pos);
   int left_distance = int(square.file - FILE_A);
   int right_distance = int(FILE_H - square.file);
   int lower_distance = int(square.rank - RANK_1);

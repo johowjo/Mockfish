@@ -1,11 +1,28 @@
 #ifndef _PIECES_H
-namespace Piece{
-enum Piece {
+#define _PIECES_H
+#include "board.h"
+#include <algorithm>
+using namespace Board;
+namespace Pieces{
+
+enum PieceType {
   PAWN,
   KNIGHT,
   BISHOP,
   QUEEN,
   KING,
+  EMPTY,
 };
+
+struct Piece {
+  PieceType type;
+  Color color;
+};
+
+// class Piece {
+//   PieceType Type;
+//   Color color;
+//   Square square;
+// };
 }
 #endif

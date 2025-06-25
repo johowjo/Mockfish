@@ -1,7 +1,9 @@
-#ifndef _MOVES_H
+#ifndef _MOVEUTILS_H
+#define _MOVEUTILS_H
 #include "board.h"
-namespace Moves {
 using namespace Board;
+namespace Moves {
+
 enum Direction {
   NORTH,
   SOUTH,
@@ -14,7 +16,6 @@ enum Direction {
 };
 
 Bitboard shift (Direction dir, const Bitboard bb);
-
 
 // returns available squares for a piece from its position
 // assuming empty board
@@ -39,8 +40,7 @@ Bitboard white_pawn_move_squares(Bitboard pos);
 Bitboard black_pawn_capture_squares(Bitboard pos);
 
 Bitboard white_pawn_capture_squares(Bitboard pos);
-
-
 }
+
 
 #endif
