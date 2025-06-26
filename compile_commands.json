@@ -1,0 +1,58 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-c",
+      "-g",
+      "-o",
+      "src/board.o",
+      "src/board.cpp"
+    ],
+    "directory": "/Users/howardliao/Mockfish",
+    "file": "/Users/howardliao/Mockfish/src/board.cpp",
+    "output": "/Users/howardliao/Mockfish/src/board.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-c",
+      "-g",
+      "-o",
+      "src/moveutils.o",
+      "src/moveutils.cpp"
+    ],
+    "directory": "/Users/howardliao/Mockfish",
+    "file": "/Users/howardliao/Mockfish/src/moveutils.cpp",
+    "output": "/Users/howardliao/Mockfish/src/moveutils.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-c",
+      "-g",
+      "-o",
+      "src/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/Users/howardliao/Mockfish",
+    "file": "/Users/howardliao/Mockfish/src/main.cpp",
+    "output": "/Users/howardliao/Mockfish/src/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-std=c++11",
+      "-c",
+      "-g",
+      "-o",
+      "src/test.o",
+      "src/test.cpp"
+    ],
+    "directory": "/Users/howardliao/Mockfish",
+    "file": "/Users/howardliao/Mockfish/src/test.cpp",
+    "output": "/Users/howardliao/Mockfish/src/test.o"
+  }
+]

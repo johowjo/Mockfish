@@ -9,6 +9,9 @@ using namespace Moves;
 using namespace Pieces;
 namespace Positions {
 class Position {
+public:
+  Bitboard get_occupied_squares();
+private:
   Color color_to_move;
   Piece board[BOARD_SIZE][BOARD_SIZE];
   Bitboard occupied_squares;

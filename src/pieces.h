@@ -17,6 +17,7 @@ enum PieceType {
 struct Piece {
   PieceType type;
   Color color;
+  Square square;
 };
 
 // class Piece {

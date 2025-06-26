@@ -21,11 +21,27 @@ Square bb_to_square(Bitboard bb) {
     }
     bit++;
   }
+
   return Square {.file = File(bit % 8), .rank = Rank(bit / 8)};
+}
+
+std::vector<Square> bb_to_squares(Bitboard bb) {
+  std::vector<Square> v;
+  int bit = 0;
+  while (true) {
+    if ((bb >> bit) & 1ull) {
+      break;
+    }
+    bit++;
+    v.push_back(Square {.file =  File(bit % 8), .rank = Rank(bit / 8)});
+  }
+
+  return v;
 }
 
 Bitboard square_to_bb(Square square) {
   int bit = 8 * square.file + square.rank;
   return Bitboard(1 << bit);
 }
+
 }

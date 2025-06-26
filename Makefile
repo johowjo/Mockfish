@@ -1,7 +1,7 @@
 CC = clang++
 CFLAGS = -std=c++11
 
-SRC = src/board.cpp src/moves.cpp 
+SRC = src/board.cpp src/moveutils.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: main test

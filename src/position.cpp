@@ -1,4 +1,4 @@
-#include "positions.h"
+#include "position.h"
 #include "board.h"
 #include "pieces.h"
 
@@ -9,6 +9,10 @@ Position::Position(Position parent, Move move) {
 
   board[move.next.file][move.next.rank] = parent.board[move.prev.file][move.prev.rank];
   board[move.prev.file][move.prev.rank] = Piece {.type =  EMPTY, .color = WHITE};
+}
+
+Bitboard Position::get_occupied_squares() {
+  return occupied_squares;
 }
 
 Piece Position::get_piece(Square square) {
