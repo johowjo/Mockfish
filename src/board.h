@@ -1,7 +1,6 @@
 #ifndef _BOARD_H
 #define _BOARD_H
 #include <cstdint>
-#include <iostream>
 #include <vector>
 #define BOARD_SIZE 8
 namespace Board {
@@ -34,6 +33,8 @@ enum Rank {
 };
 
 struct Square {
+  Square(int r, int f);
+  Square() = default;
   File file;
   Rank rank;
 };

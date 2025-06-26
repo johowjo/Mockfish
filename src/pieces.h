@@ -1,7 +1,6 @@
 #ifndef _PIECES_H
 #define _PIECES_H
 #include "board.h"
-#include <algorithm>
 using namespace Board;
 namespace Pieces{
 
@@ -10,6 +9,7 @@ enum PieceType {
   KNIGHT,
   BISHOP,
   QUEEN,
+  ROOK,
   KING,
   EMPTY,
 };

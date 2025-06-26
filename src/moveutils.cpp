@@ -1,6 +1,7 @@
 #include "moveutils.h"
 #include "board.h"
 #include <algorithm>
+#include <iostream>
 namespace Moves {
 
 Bitboard shift (Direction dir, const Bitboard bb) {
