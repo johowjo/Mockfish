@@ -1,5 +1,6 @@
 #include "board.h"
 #include "moveutils.h"
+#include "position.h"
 #include <iostream>
 #define DEBUG
 
@@ -21,6 +22,9 @@
 //   Board::show_bitboard(_bb);
 //   return;
 // }
+void test_move_find() {
+  Positions::Position pos;
+}
 
 
 int main() {

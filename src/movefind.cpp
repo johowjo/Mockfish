@@ -1,4 +1,5 @@
 #include "movefind.h"
+#include "moveutils.h"
 #include <assert.h>
 
 namespace Moves {

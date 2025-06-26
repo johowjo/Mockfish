@@ -1,7 +1,6 @@
 #ifndef _MOVEFIND_H
 #define _MOVEFIND_H
 #include "move.h"
-#include "moveutils.h"
 #include "pieces.h"
 #include "position.h"
 #include <vector>
